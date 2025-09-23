@@ -1026,7 +1026,7 @@
                         <div class="tab" data-tab="product-management">Product Management</div>
                         <div class="tab" data-tab="user-management">User Management</div>
                         <div class="tab" data-tab="event-management">Event Management</div>
-                        <div class="tab" data-tab="settings">Settings</div>
+                        <div class="tab" data-tab="settings">Admin Settings</div>
                     </div>
                     
                     <!-- Order Management Tab -->
@@ -1265,10 +1265,26 @@
     <script>
         // Data Storage
         let products = JSON.parse(localStorage.getItem('nanaCafeProducts')) || [
-            { id: 1, name: "Espresso", description: "Strong and bold coffee shot", price: 3.50, image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
-            { id: 2, name: "Cappuccino", description: "Espresso with steamed milk foam", price: 4.50, image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
-            { id: 3, name: "Croissant", description: "Buttery, flaky pastry", price: 3.00, image: "https://images.unsplash.com/photo-1555507036-ab794f27d2e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
-            { id: 4, name: "Latte Art Special", description: "Beautifully crafted latte with artistic foam", price: 5.00, image: "https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" }
+            { id: 1, name: "Matchnana", description: "Banana, Matcha Flavored Custard, Wafers, Matcha Powder", price: 180.00, image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
+            { id: 2, name: "Biscoffnana", description: "Banana, Custard, Lotus Biscoff Spread, Lotus Biscoff Cookies, Wafers", price: 190.00, image: "https://images.unsplash.com/photo-1555507036-ab794f27d2e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
+            { id: 3, name: "Classicnana", description: "Banana, Custard, Wafers, Caramel Drizzle", price: 150.00, image: "https://images.unsplash.com/photo-1555507036-ab794f27d2e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
+            { id: 4, name: "Biscoffnana Iced Coffee Latte", description: "Iced Coffee Latte (Full Cream Milk) + Biscoffnana", price: 220.00, image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
+            { id: 5, name: "Matcha Latte & Classicnana", description: "Matcha Latte (Full Cream Milk) + Classicnana", price: 200.00, image: "https://images.unsplash.com/photo-1555507036-ab794f27d2e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
+            { id: 6, name: "Matcha Latte & Matchanana", description: "Matcha Latte (Full Cream Milk) + Matchanana", price: 220.00, image: "https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" }
+            { id: 7, name: "Spanish Latte", description: "Iced Coffee Latte with Condense Milk", price: 130.00, image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
+            { id: 8, name: "Banana Bread Coffee Latte", description: "Iced Coffee Latte with Banana Bread Cream Top", price: 160.00, image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
+            { id: 9, name: "500ml Matcha Latte", description: "500ml Matcha Oat Latte", price: 3.00, image: "https://images.unsplash.com/photo-1555507036-ab794f27d2e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
+            { id: 10, name: "Hojicha Oat Latte", description: "Hojicha Latte with OATSIDE Oat Milk & House Blend Syrup", price: 170.00, image: "https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" }
+            { id: 11, name: "Banana Bread Matcha Latte", description: "Matcha Latte with Banana Bread Cream Top", price: 200.00, image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
+            { id: 12, name: "Kinako Matcha", description: "Matcha Latte with Kinako Cream & House Blend Syrup", price: 200.00, image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
+            { id: 13, name: "Sakura Kiss Einspanner", description: "Matcha Latte & Cherry Blossom Einspanner", price: 200.00, image: "https://images.unsplash.com/photo-1555507036-ab794f27d2e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
+            { id: 14, name: "Matcha Cloud Bliss", description: "Matcha Cloud & Coconut Water", price: 190.00, image: "https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" }
+            { id: 15, name: "Mango Tango", description: "Matcha Latte & Tropical Mango", price: 190.00, image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
+            { id: 16, name: "The London Fog", description: "Matcha Latte with House Blend Earl Grey Syrup", price: 180.00, image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" },
+            { id: 17, name: "Matcha Oat Latte", description: "Matcha Latte with OATSIDE Oat Milk & House Blend Syrup", price: 190.00, image: "https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" }
+            { id: 18, name: "Matcha Kuromitsu Warabi Mochi", description: "Warabi Mochi with Matcha & Kuromitsu", price: 120.00, image: "https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" }
+            { id: 19, name: "Kinako Kuromitsu Warabi Mochi", description: "Warabi Mochi with Roasted Soy Bean Powder & Kuromitsu", price: 100.00, image: "https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" }
+            { id: 17, name: "Double Chocolate Warabi Mochi", description: "Warabi Mochi with Chocolate Powder & Chocolate Sauce", price: 100.00, image: "https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" }
         ];
         
         let events = JSON.parse(localStorage.getItem('nanaCafeEvents')) || [
